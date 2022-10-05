@@ -9,7 +9,7 @@ export class AppComponent {
   serverElements = [
     { type: "server", name: "Testserver", content: "Just a test" }
   ];
-  onAddServer(serverData:{serverName:string,serverContent:string}) {
+  onAddServer(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
       type: 'server',
       name: serverData.serverName,
@@ -17,12 +17,18 @@ export class AppComponent {
     });
   }
 
-  onAddBlueprint(blueprintData:{serverName:string,serverContent:string}) {
+  onAddBlueprint(blueprintData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
       type: 'blueprint',
       name: blueprintData.serverName,
       content: blueprintData.serverContent
-    }); 
+    });
+  }
+  onChangeFirst() {
+    this.serverElements[0].name = "Changed!";
+  }
+  destroyFirst() {
+    this.serverElements.splice(0, 1);
   }
 }
 
